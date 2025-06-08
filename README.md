@@ -1,0 +1,1 @@
+This is an Small library that just lets you use imgui within a new window in c#. This is an experimental test library i use for own perposouse. I will only add features i currently need so dont expect big updates or anything. Hope i can safe you some time, thats all.

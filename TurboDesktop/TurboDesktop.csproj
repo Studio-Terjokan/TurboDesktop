@@ -17,12 +17,17 @@
 		<Analyzer Remove="Extern\**\*" />
 		
 		<Compile Include="Extern\ImGui\src\ImGui.NET\**\*.cs" />
+		<Compile Include="Extern\StbImage\src\**\*.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<Content Include="Resources\**">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Extern\StbImage\" />
 	</ItemGroup>
 
 </Project>

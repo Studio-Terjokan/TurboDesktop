@@ -1,3 +1,6 @@
 [submodule "TurboDesktop/Extern/ImGui"]
 	path = TurboDesktop/Extern/ImGui
 	url = https://github.com/Studio-Terjokan/ImGui.NET.git
+[submodule "TurboDesktop/Extern/StbImage"]
+	path = TurboDesktop/Extern/StbImage
+	url = https://github.com/Studio-Terjokan/StbImageSharp.git

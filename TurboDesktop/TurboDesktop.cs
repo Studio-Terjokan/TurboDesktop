@@ -30,7 +30,7 @@ namespace TurboDesktop
                 return;
             }
 
-            Window = new Window(800, 700, "TurboDesktop: " + Name);
+            Window = new Window(1080, 720, "TurboDesktop: " + Name);
             Window.OnWindowClosed += () => m_IsRunning = false;
 
             ImGuiController.InitImGui(Window.GetNativePtr());

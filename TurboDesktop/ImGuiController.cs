@@ -8,7 +8,7 @@ using TurboDesktop.Glfw;
 
 namespace TurboDesktop
 {
-    internal static class ImGuiController 
+    public static class ImGuiController 
     {
         
 
@@ -37,16 +37,16 @@ namespace TurboDesktop
         }
 
         [DllImport("Resources\\TurboCore.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void InitImGui(IntPtr window);
+        internal static extern void InitImGui(IntPtr window);
 
         [DllImport("Resources\\TurboCore.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void NewFrame();
+        internal static extern void NewFrame();
 
         [DllImport("Resources\\TurboCore.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Render();
+        internal static extern void Render();
 
         [DllImport("Resources\\TurboCore.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Shutdown();
+        internal static extern void Shutdown();
 
         [DllImport("Resources\\TurboCore.dll", CallingConvention = CallingConvention.Cdecl)]
         internal static extern void LoadFont(IntPtr strPtr, float size);

@@ -23,6 +23,7 @@ namespace TurboDesktop.Glfw
         public event Action<int, int> OnWindowSizeChanche;
         public event Action<bool> OnWindowFocusChanche;
         public event Action OnWindowClosed;
+        public event Action<string[]> OnWindowDroped;
 
 
         private nint m_Window;
@@ -31,6 +32,7 @@ namespace TurboDesktop.Glfw
         private readonly GLFWwindowsizefun m_SizeCallback;
         private readonly GLFWwindowfocusfun m_FocusCallback;
         private readonly GLFWwindowposfun m_WindowPosCallback;
+        private readonly GLFWdropfun m_WindowDropCallback;
 
         public Vector2 WindowPosition { get; private set; }
 
@@ -55,9 +57,11 @@ namespace TurboDesktop.Glfw
             m_SizeCallback = new GLFWwindowsizefun(WindowSizeCallback);
             m_FocusCallback = new GLFWwindowfocusfun(WindowFocusCallback);
             m_WindowPosCallback = new GLFWwindowposfun((nint winow, int x, int y) => { WindowPosition = new Vector2(x, y); });
+            m_WindowDropCallback = new GLFWdropfun(WindowDropCallback);
             glfwSetWindowSizeCallback(m_Window, m_SizeCallback);
             glfwSetWindowFocusCallback(m_Window, m_FocusCallback);
             glfwSetWindowPosCallback(m_Window, m_WindowPosCallback);
+            glfwSetDropCallback(m_Window, m_WindowDropCallback);
 
             glfwSwapInterval(1); // TODO: Enable again, set to 1
 
@@ -96,7 +100,10 @@ namespace TurboDesktop.Glfw
         {
             OnWindowFocusChanche?.Invoke(focus == 1);
         }
-
+        private void WindowDropCallback(nint window, int count , string[] filepaths)
+        {
+            OnWindowDroped?.Invoke(filepaths);
+        }
         public void Close()
         {
             if (m_Window != IntPtr.Zero)
